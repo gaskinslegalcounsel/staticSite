@@ -1,0 +1,549 @@
+/* ============================================
+   Reset & Base
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #faf9f6;
+  --color-dark: #1a1a1a;
+  --color-dark-bg: #111111;
+  --color-text: #2c2c2c;
+  --color-text-light: #6b6b6b;
+  --color-accent: #8b7355;
+  --color-accent-light: #a8956f;
+  --color-border: #e0dcd5;
+  --color-cream: #f5f0e8;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 7rem 0;
+}
+
+.section-dark {
+  background-color: var(--color-dark-bg);
+  color: #f0ede6;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(250, 249, 246, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-dark);
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-dark);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-dark);
+  transition: all 0.3s ease;
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 2rem 6rem;
+  background: linear-gradient(170deg, var(--color-bg) 0%, var(--color-cream) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 115, 85, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-dark);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--color-text-light);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+/* ============================================
+   Button
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-dark);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn:hover {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+/* ============================================
+   Section Labels
+   ============================================ */
+.section-label span {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-label p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.section-dark .section-label p {
+  color: #888;
+}
+
+/* ============================================
+   Section Body
+   ============================================ */
+.section-body h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.section-body h2 em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.section-dark .section-body h2 em {
+  color: var(--color-accent-light);
+}
+
+.section-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  max-width: 640px;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.section-dark .section-body p {
+  color: #aaa;
+}
+
+/* ============================================
+   Service Cards
+   ============================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.5rem 2rem;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+}
+
+.card-number {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--color-accent-light);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #f0ede6;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #999;
+  font-weight: 300;
+}
+
+/* ============================================
+   Qualifications
+   ============================================ */
+.quals {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 4rem;
+}
+
+.qual {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.qual-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+}
+
+.qual h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.qual p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+
+/* ============================================
+   Quote / Philosophy
+   ============================================ */
+.section-quote {
+  padding: 6rem 0;
+  background: var(--color-cream);
+  text-align: center;
+}
+
+.section-quote blockquote p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-dark);
+  max-width: 780px;
+  margin: 0 auto 1.5rem;
+  font-style: italic;
+}
+
+.section-quote cite {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   Contact
+   ============================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.contact-item h4 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: 0.75rem;
+}
+
+.contact-item p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.contact-item a {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #fff;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer p {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+.footer-note {
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(250, 249, 246, 0.98);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 10rem 2rem 5rem;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .quals {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .section-grid {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .hero {
+    padding: 8rem 1.25rem 4rem;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+}
